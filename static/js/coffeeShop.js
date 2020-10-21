@@ -8,22 +8,11 @@ const addItemToCart = (itemName) => {
   `);
 };
 // HTMLElement.addEventListener(eventtype, callback)
-$(`.add-to-order`).on('click', () => {
-
-  addItemToCart('coffee');
-  incrementCartTotal(1.50);
-});
-
-
 
 const resetCart = () => {
   $('#cart-total').html('0.00');
   $('#cart-items').empty();
 };
-
-$('#place-order').on('click', () => {
-  incrementCoffeeSold($('#cart-items').children().length);
-} )
 
 const incrementCartTotal = (price) => {
   const cartTotal = $('#cart-total');
@@ -46,7 +35,13 @@ const setProgressAndStatus = (progressVal, statusMsg) => {
   $('#order-status-message').html(statusMsg);
 };
 
+$(`.add-to-order`).on('click', () => {
 
-//
-// Add your event handlers below.
-//
+  addItemToCart('coffee');
+  incrementCartTotal(1.50);
+});
+
+$('#place-order').on('click', () => {
+  incrementCoffeeSold($('#cart-items').children().length);
+  resetCart();
+} );
