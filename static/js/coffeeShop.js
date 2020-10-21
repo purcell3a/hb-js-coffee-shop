@@ -7,6 +7,14 @@ const addItemToCart = (itemName) => {
     </tr>
   `);
 };
+// HTMLElement.addEventListener(eventtype, callback)
+$(`.add-to-order`).on('click', () => {
+
+  addItemToCart('coffee');
+  incrementCartTotal(1.50);
+});
+
+
 
 const resetCart = () => {
   $('#cart-total').html('0.00');
