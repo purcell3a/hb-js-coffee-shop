@@ -21,6 +21,10 @@ const resetCart = () => {
   $('#cart-items').empty();
 };
 
+$('#place-order').on('click', () => {
+  incrementCoffeeSold($('#cart-items').children().length);
+} )
+
 const incrementCartTotal = (price) => {
   const cartTotal = $('#cart-total');
 
